@@ -19,20 +19,20 @@ class ModelTests(TestCase):
     def test_new_user_email_normalized(self):
         """Test the email for a new user is normalized"""
         email = 'saidbek@GMAIL.COM'
-        user = get_user_model().objects.create_user(email, 'test123')
+        user = get_user_model().objects.create_user(email, 'saidbek')
 
         self.assertEqual(user.email, email.lower())
 
     def test_new_user_invalied_email(self):
         """Test crating user with no email raises error"""
         with self.assertRaises(ValueError):
-            get_user_model().objects.create_user(None, 'test123')
+            get_user_model().objects.create_user(None, 'saidbek')
 
     def test_create_new_superuser(self):
         """Test creating a new superuser"""
         user = get_user_model().objects.create_superuser(
-            'admin@gmail.com',
-            'admin123'
+            'saidbek@gmail.com',
+            'saidbek'
         )
 
         self.assertTrue(user.is_superuser)
